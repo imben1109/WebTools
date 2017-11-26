@@ -1,0 +1,18 @@
+container:
+  image: node:latest
+env:
+  GITHUB_TOKEN: ENCRYPTED[f876c1fee95a0d1b66a10d389637818b48aed9f5c711356c18dc898a51e4eb17c40ed3414a99c01b3be177db1fba2eca]
+task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm ci
+  matrix:
+      - name: Build and Publish
+        build_script: npm run build
+        git_config_user_script: git config user.name "circleci"
+        git_config_email_script: git config user.email "circleci@techoffice.com"
+        git_add_script: git add .
+        git_commit_script: git commit -m "[ci skip] build webtool"
+        git_add_origin_script: git remote add ci-build https://imben1109:${GITHUB_TOKEN}@github.com/TechOffice/WebTools.git
+        git_push_script: git push ci-build
