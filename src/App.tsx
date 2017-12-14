@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Link, MemoryRouter } from "react-router-dom";
 import { Route } from "react-router";
 import { PreparedStatementCombinerComponent } from "./component/preparedstatement/PreparedStatementCombinerComponent";
+import { VariableNameCovertor } from "./component/variablenameconvertor/VariableNameConvertor";
 
 class App extends React.Component{
     
@@ -10,11 +11,13 @@ class App extends React.Component{
         return (
             <MemoryRouter>
                 <div>
-                    <h1>Hello World</h1>
+                    <h1>Web Tools</h1>
                     <ul>
                         <li><Link to="/">PreparedStatementCombiner</Link></li>
+                        <li><Link to="/VariableNameConvertor">VariableNameConvertor</Link></li>
                     </ul>
                     <Route exact path="/" component={PreparedStatementCombinerComponent}/>
+                    <Route path="/VariableNameConvertor" component={VariableNameCovertor}/>
                 </div>        
             </MemoryRouter>    
         )

@@ -41,12 +41,12 @@ export class PreparedStatementCombinerComponent extends React.Component<{}, Prep
         return (
             <div>
                 <div>
-                    <textarea value={this.state.preparedStatement} onChange={this.updatePreparedStatement.bind(this)}/>
-                    <textarea value={this.state.bindValues} onChange={this.updateBindValues.bind(this)}/>
+                    <textarea value={this.state.preparedStatement} onChange={this.updatePreparedStatement.bind(this)} style={{width: 300, height: 100}}/>
+                    <textarea value={this.state.bindValues} onChange={this.updateBindValues.bind(this)} style={{width: 300, height: 100}}/>
                     <button onClick={this.onCombine.bind(this)}>Combine</button>
                 </div>
                 <div>
-                    <textarea value={this.state.combinedSql} disabled/>
+                    <textarea value={this.state.combinedSql} disabled style={{width: 300, height: 100}}/>
                 </div>
             </div>
         )
