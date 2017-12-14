@@ -18,6 +18,7 @@ module.exports = {
 		]
 	},
 	resolve: {
-		descriptionFiles: ['bower.json', 'package.json']
+		extensions: ['.jsx', '.js', '.tsx'], 
+		modules: [ path.resolve(__dirname, 'src'), 'node_modules' ] 
     }
 }; 
