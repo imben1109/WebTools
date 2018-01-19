@@ -9,3 +9,8 @@ Open Task
 ```
 ctrl + shift + b
 ```
+
+Rename all occurance word
+```
+Ctrl + F2
+```

@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Link, MemoryRouter } from "react-router-dom";
 import { Route } from "react-router";
 import { PreparedStatementCombinerComponent } from "./component/preparedstatement/PreparedStatementCombinerComponent";
-import { VariableNameCovertor } from "./component/variablenameconvertor/VariableNameConvertor";
+import { VariableNameCovertorComponent } from "./component/variablenameconvertor/VariableNameConvertorComponent";
 
 class App extends React.Component{
     
@@ -17,7 +17,7 @@ class App extends React.Component{
                         <li><Link to="/VariableNameConvertor">VariableNameConvertor</Link></li>
                     </ul>
                     <Route exact path="/" component={PreparedStatementCombinerComponent}/>
-                    <Route path="/VariableNameConvertor" component={VariableNameCovertor}/>
+                    <Route path="/VariableNameConvertor" component={VariableNameCovertorComponent}/>
                 </div>        
             </MemoryRouter>    
         )
