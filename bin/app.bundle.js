@@ -23539,6 +23539,8 @@ var PreparedStatementCombinerUtil = {
             var bindValue = bindValueList[i];
             if (bindValue.type == 'String') {
                 bindSql = this.replace(bindSql, "?", "'" + bindValue.str + "'");
+            } else if (bindValue.type == 'Timestamp') {
+                bindSql = this.replace(bindSql, "?", "TO_DATE('" + bindValue.str + "', 'YYYY-MM-DD HH24:MI:SS.SSSSS')");
             } else {
                 bindSql = this.replace(bindSql, "?", bindValue.str);
             }
