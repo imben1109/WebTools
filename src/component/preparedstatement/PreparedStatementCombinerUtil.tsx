@@ -13,21 +13,19 @@ var PreparedStatementCombinerUtil = {
         var bindValueArr = bindValues.split(",");
         for(var i=0;i <bindValueArr.length; i++){
             var bindValue = bindValueArr[i];
+            var bind = {
+                str: null,
+                type: null
+            }
             if (bindValue.split("(").length > 1){
                 var bindValueStr = bindValue.split("(")[0];
                 var bindValueType = bindValue.split("(")[1].replace(")", "");
-                var bind = {
+                bind = {
                     str: bindValueStr.trim(),
                     type: bindValueType
                 };
                 bindList.push(bind);
             }else {
-                if (bindValue == "null"){
-                    var bind = {
-                        str: null,
-                        type: null
-                    }
-                }
                 bindList.push(bind);
             }
         }
@@ -63,7 +61,7 @@ var PreparedStatementCombinerUtil = {
      * @param preparedStatement
      * @param bindValues
      */
-    getCombinedSql: function(preparedStatement, bindValues){
+    getCombinedSql: function(preparedStatement: string, bindValues){
         var bindValueList = this.getBindValueList(bindValues);
         var bindSql = preparedStatement;
         for (var i =0; i<bindValueList.length; i++){
@@ -75,6 +73,9 @@ var PreparedStatementCombinerUtil = {
             }else {
                 bindSql = this.replace(bindSql, "?", bindValue.str);    
             }
+        }
+        if (bindSql.includes("?")){
+            bindSql = bindSql.replace(/\?/g, "null");
         }
         return bindSql;
     }

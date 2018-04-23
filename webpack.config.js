@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
 	entry: './src/App.tsx',
+	devtool: "eval-source-map",	
 	output: {
 		path: path.resolve(__dirname, 'bin'),
 		filename: 'app.bundle.js'

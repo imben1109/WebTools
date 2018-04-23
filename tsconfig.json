@@ -6,7 +6,8 @@
         "outDir": "target",
         "jsx": "react",
         "moduleResolution": "node",
-        "allowJs": true
+        "allowJs": true,
+        "lib": ["es2016", "dom"] 
     },
     "include": [
         "src/**/*"
