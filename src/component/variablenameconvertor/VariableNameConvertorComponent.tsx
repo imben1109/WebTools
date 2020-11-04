@@ -69,7 +69,7 @@ export class VariableNameCovertorComponent extends Component<{}, VariableNameCon
                     <pre>
                     This is used to convert words into different naming convention such as Upper Camel Case, Lower Camel Case or Underscore.
                     </pre>
-                    <b>Lower Camel Case: </b><pre>abc_abc -> abcAbc</pre>
+                    <b>Lower Camel Case: </b><pre>{'abc_abc -> abcAbc'}</pre>
                 </div>
             </div>
         )

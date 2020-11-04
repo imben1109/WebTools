@@ -8,10 +8,10 @@ module.exports = {
 		filename: 'app.bundle.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.tsx$/,
-				loaders: ['babel-loader', 'ts-loader'],
+				use: ['babel-loader', 'ts-loader'],
 				exclude: [
 					/node_modules/
 				]
