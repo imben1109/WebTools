@@ -1,0 +1,17 @@
+container:
+  image: node:latest
+task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm ci
+  matrix:
+      - name: Build 
+        build_script: npm run build
+      - name: Publish
+        git_config_user_script: git config user.name "circleci"
+        git_config_email_script: git config user.email "circleci@techoffice.com"
+        git_add_script: git add .
+        git_commit_script: git commit -m "[ci skip] build webtool"
+        git_add_origin_script: git remote add ci-build https://imben1109:${GITHUB_TOKEN}@github.com/TechOffice/WebTools.git
+        git_push_script: git push ci-build
